@@ -1,14 +1,15 @@
-AwesomeWM Configuration
+AwesomeWM SolarizedMode Config
 
-this is my config for awesomewm on archlinux
+this is my dotfiles for awesomewm on archlinux
 
-terminal = urxvt-unicode { .Xdefault, for config }
+terminal = Xterm { .Xresources }
 
 awesome  = { cp awesome in ~/.config }
 
 zsh      = { cp .zsh and .zshrc in home }
 
-dependecies = { awesome ; zsh ; oh-my-zsh ; lain ; rxvt-unicode ; urxvt-perls ;
-FaienceIcon }
+gtk      = { NumixSolarizedGtkTheme and NumixIconSet from AUR }
+
+dependecies = { awesome ; zsh ; oh-my-zsh ; lain ; tmux ; compton ; gtk ; vim ; xterm }
 
 tnks @smlb for cooperation https://github.com/smlb
