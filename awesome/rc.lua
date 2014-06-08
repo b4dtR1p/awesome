@@ -12,8 +12,7 @@ local menubar = require("menubar")
 
 -- {{{
 os.execute("nm-applet &")
-awful.util.spawn_with_shell("/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1")
-awful.util.spawn_with_shell("run_once nm-applet")
+os.execute("caffeine &")
 -- }}}
 
 -- {{{ Error handling
@@ -45,7 +44,7 @@ modkey      = "Mod4"
 altkey      = "Mod1"
 
 -- User defined
-terminal    = "urxvt"
+terminal    = "xterm"
 editor      = os.getenv("EDITOR") or "vim"
 editor_cmd  = terminal .. " -e " .. editor
 volume      = terminal .. " -name 'alsamixer' -e alsamixer -c 0"
@@ -53,7 +52,7 @@ rang        = terminal .. " -name 'ranger' -e ranger"
 chrome      = "chromium"
 fire        = "firefox"
 rhythm      = "rhythmbox-client"
-atom        = "atom -d"
+vbox        = "virtualbox"
 subl        = "subl"
 pcmanfm     = "pcmanfm"
 gray = "#474747"
@@ -64,9 +63,9 @@ confdir = home .. "/.config/awesome"
 themes = confdir .. "/themes"
 
 -- Load active themes
-active_theme = themes .. "/multicolor"
+active_theme = themes .. "/solarized-powerline"
 beautiful.init(active_theme .. "/theme.lua")
-theme.wallpaper = "/home/b4dtr1p/Immagini/1574437.png"
+theme.wallpaper = "/home/b4dtr1p/Immagini/1.jpg"
 local layouts = {
     awful.layout.suit.floating,
     lain.layout.uselesstile,
@@ -81,7 +80,7 @@ local layouts = {
 
 -- {{{ Tag list
 tags = {
-    names = { "ƀ", "Ƅ", "Ɵ", "ƈ", "Ɗ", "ƙ", "ω" },
+    names = { "ƀ", "Ƅ", "Ɵ", "ƈ", "Ɗ", "ƙ", ">>" },
     layout = { layouts[4], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2], layouts[4] }
 }
 for s = 1, screen.count() do
@@ -105,12 +104,13 @@ myawesomemenu = {
    { "edit config", editor_cmd .. " " .. awesome.conffile },
    { "restart", awesome.restart },
    { "quit", awesome.quit },
-   { "shutdowm", "systemctl poweroff" },
-   { "reboot", "sudo reboot" },
+   { "shutdown", "systemctl poweroff" },
+   { "reboot", "reboot" },
 }
 Dev = {
    { "sublime", subl },
-   { "atom", atom }
+   { "virtualbox", vbox },
+   { "xterm", xterm}
 }
 Internet = {
    { "chromium", chrome },
@@ -121,7 +121,7 @@ Media = {
    { "Rythhmbox", rhythm }
 }
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, "/home/b4dtr1p/.config/awesome/themes/multicolor/logo/awesome-blue.png" },
+mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.icons },
                                     { "Internet", Internet },
                                     { "Media", Media },
                                     { "Dev", Dev },
@@ -131,7 +131,7 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, "/home/b4dtr1p/.
                                   }
                         })
 
-mylauncher = awful.widget.launcher({ image = "/home/b4dtr1p/.config/awesome/themes/multicolor/logo/arch-blue.png", menu = mymainmenu })
+mylauncher = awful.widget.launcher({ menu = mymainmenu })
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
@@ -333,6 +333,7 @@ for s = 1, screen.count() do
 
     -- Widgets that are aligned to the left
     local left_layout = wibox.layout.fixed.horizontal()
+    left_layout:add(mylayoutbox[s])
     left_layout:add(mylauncher)
     left_layout:add(mytaglist[s])
     left_layout:add(mpdicon)
@@ -351,8 +352,8 @@ for s = 1, screen.count() do
     right_layout:add(memwidget)
     right_layout:add(baticon)
     right_layout:add(batwidget)
-    --right_layout:add(neticon)
-    --right_layout:add(netwidget)
+    -- right_layout:add(neticon)
+    -- right_layout:add(netwidget)
     right_layout:add(volicon)
     right_layout:add(volumewidget)
     right_layout:add(clockicon)
@@ -451,7 +452,7 @@ globalkeys = awful.util.table.join(
     awful.key({ }, "XF86AudioNext", function()
             awful.util.spawn("ncmpcpp next", false) end),
     awful.key({ }, "Print", function()
-            awful.util.spawn(" scrot '%F--%I:%M:%S:%p--$wx$h--scrot.png' -e 'mv $f /home/simone/pics/scrot'", false) end))
+            awful.util.spawn(" scrot '%F--%I:%M:%S:%p--$wx$h--scrot.png' -e 'mv $f /home/b4dtr1p/Immagini'", false) end))
 
 clientkeys = awful.util.table.join(
     awful.key({ modkey,           }, "p",      function (c) c.fullscreen = not c.fullscreen  end),

@@ -1,7 +1,7 @@
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="fino"
+ZSH_THEME="b4d"
 HIST_STAMPS="mm/dd/yyyy"
-plugins=(git archlinux github vi-mode themes battery cp tmux)
+plugins=(git archlinux github vi-mode themes battery cp tmux sc-enable)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh/alias.zsh
@@ -41,6 +41,7 @@ HISTSIZE=1000
 SAVEHIST=200
 ## RUBY {{{
 export PATH="`ruby -e 'puts Gem.user_dir'`/bin:$PATH"
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 #}}}
 export PATH="/home/b4dtr1p/.gem/ruby/2.1.0/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl"
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -56,7 +57,10 @@ export PATH="/home/b4dtr1p/.gem/ruby/2.1.0/bin:/usr/local/bin:/usr/local/sbin:/u
 # fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+# archey3
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
