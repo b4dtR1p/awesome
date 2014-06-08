@@ -2,7 +2,7 @@ AwesomeWM SolarizedMode Config
 
 This is my dotfiles for awesomewm on archlinux
 
-![Alt text](http://imgur.com/5GVlodx&TWIainK&xegYyUE#0 "Optional title")
+![Solarized Awesome](https://github.com/b4dtR1p/Awesome/screen.png "Awesome Solarized")
 
 terminal    =  Xterm { .Xresources }
 
