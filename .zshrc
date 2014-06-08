@@ -1,7 +1,7 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="b4d"
 HIST_STAMPS="mm/dd/yyyy"
-plugins=(git archlinux github vi-mode themes battery cp tmux sc-enable)
+plugins=(git archlinux github vi-mode themes battery cp tmux systemd)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zsh/alias.zsh

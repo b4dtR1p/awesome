@@ -13,7 +13,7 @@
 
 function prompt_char {
   git branch >/dev/null 2>/dev/null && echo "±" && return
-  echo '○'
+  echo '→'
 }
 
 function box_name {
@@ -39,5 +39,5 @@ PROMPT="╭─%{$FG[040]%}%n%{$reset_color%} %{$FG[white]%}@%{$reset_color%} %{$
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" %{$FG[white]%}on%{$reset_color%} %{$fg[255]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$FG[202]%}✘✘✘"
-ZSH_THEME_GIT_PROMPT_CLEAN="%{$FG[040]%}✔"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$FG[202]%} →→→"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$FG[040]%} µ"
