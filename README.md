@@ -1,14 +1,16 @@
 AwesomeWM SolarizedMode Config
 
-this is my dotfiles for awesomewm on archlinux
+This is my dotfiles for awesomewm on archlinux
 
-terminal = Xterm { .Xresources }
+terminal    =  Xterm { .Xresources }
 
-awesome  = { cp awesome in ~/.config }
+awesome     =  { cp awesome in ~/.config }
 
-zsh      = { cp .zsh and .zshrc in home }
+zsh         =  {  cp .zsh and .zshrc in home }
 
-gtk      = { NumixSolarizedGtkTheme and NumixIconSet from AUR }
+oh-my-zsh   =   { cp b4d.zsh-theme in ~/.oh-my-zsh/themes }
+
+gtk         =  { NumixSolarizedGtkTheme and NumixIconSet from AUR }
 
 dependecies = { awesome ; zsh ; oh-my-zsh ; lain ; tmux ; compton ; gtk ; vim ; xterm }
 
